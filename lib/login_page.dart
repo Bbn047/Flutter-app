@@ -85,8 +85,7 @@ class LoginPage extends StatelessWidget {
                                     hintText: 'eg. John',
                                     hintStyle: TextStyle(color: Colors.white54),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                      ),
+                                      borderSide: BorderSide(),
                                       borderRadius: BorderRadius.circular(25),
                                     ),
                                     focusedBorder: OutlineInputBorder(
@@ -130,8 +129,7 @@ class LoginPage extends StatelessWidget {
                                     hintText: '1234@',
                                     hintStyle: TextStyle(color: Colors.white54),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                      ),
+                                      borderSide: BorderSide(),
                                       borderRadius: BorderRadius.circular(25),
                                     ),
                                     focusedBorder: OutlineInputBorder(
@@ -146,38 +144,38 @@ class LoginPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                         SizedBox(height: 5),
+                        SizedBox(height: 5),
 
-
-                         //forgot paassword
-                         Padding(
+                        //forgot paassword
+                        Padding(
                           padding: const EdgeInsets.only(top: 5.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               TextButton(
-                                onPressed: (){
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/forgot');
                                   //button action
                                 },
                                 child: Text(
                                   'forgot Password?',
-                                  style: TextStyle(color: Colors.blue)
-                                  ),
+                                  style: TextStyle(color: Colors.blue),
                                 ),
-                                TextButton(
-                                  onPressed: (){
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/create');
                                   //create account code
                                 },
                                 child: Text(
                                   'Create New!',
-                                  style: TextStyle(color: Colors.greenAccent)
+                                  style: TextStyle(color: Colors.greenAccent),
                                 ),
-                                )
+                              ),
                             ],
                           ),
-                          ),
-                          SizedBox(height: 30),
-
+                        ),
+                        SizedBox(height: 30),
 
                         // ✅ Submit / Continue Button
                         ElevatedButton(
@@ -185,9 +183,12 @@ class LoginPage extends StatelessWidget {
                             // Add your action or navigation here
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(147, 141, 141, 100).withOpacity(
-                              0.5,
-                            ),
+                            backgroundColor: const Color.fromARGB(
+                              147,
+                              141,
+                              141,
+                              100,
+                            ).withOpacity(0.5),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
