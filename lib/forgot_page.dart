@@ -143,6 +143,7 @@ class ForgotPage extends StatelessWidget {
                               ),
                               SizedBox(height: 10),
 
+                              //email link 
 
                         ],
                       ),
