@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'login_page.dart';
+import 'create_page.dart';
+import 'forgot_page.dart';
 
 void main() => runApp(VoiceVisionApp());
 
@@ -14,6 +16,8 @@ class VoiceVisionApp extends StatelessWidget {
       routes: {
         '/': (context) => VoiceVisionHome(),
         '/login': (context) => LoginPage(), //login page
+        '/create': (context) => CreatePage(), // create page
+        '/forgot': (context) => ForgotPage(),// forgot page
       },
     );
   }
