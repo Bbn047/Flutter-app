@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController passwordIdController = TextEditingController();
+  final TextEditingController userIdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +78,7 @@ class LoginPage extends StatelessWidget {
                               // Input on right
                               Expanded(
                                 child: TextField(
-                                  controller: nameController,
+                                  controller: userIdController,
                                   style: TextStyle(color: Colors.white),
                                   decoration: InputDecoration(
                                     filled: true,
@@ -85,7 +86,6 @@ class LoginPage extends StatelessWidget {
                                     hintText: 'eg. John',
                                     hintStyle: TextStyle(color: Colors.white54),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(),
                                       borderRadius: BorderRadius.circular(25),
                                     ),
                                     focusedBorder: OutlineInputBorder(
@@ -121,7 +121,7 @@ class LoginPage extends StatelessWidget {
                               //password input right
                               Expanded(
                                 child: TextField(
-                                  controller: nameController,
+                                  controller: passwordIdController,
                                   style: TextStyle(color: Colors.white),
                                   decoration: InputDecoration(
                                     filled: true,
@@ -129,7 +129,6 @@ class LoginPage extends StatelessWidget {
                                     hintText: '1234@',
                                     hintStyle: TextStyle(color: Colors.white54),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(),
                                       borderRadius: BorderRadius.circular(25),
                                     ),
                                     focusedBorder: OutlineInputBorder(
