@@ -30,22 +30,6 @@ class LoginPage extends StatelessWidget {
           body: SafeArea(
             child: Stack(
               children: [
-                // ✅ Close Button
-                Positioned(
-                  top: 10,
-                  right: 16,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.close,
-                      color: Colors.greenAccent,
-                      size: 28,
-                    ),
-                  ),
-                ),
-
                 // ✅ Main Content
                 Center(
                   child: Container(
@@ -53,11 +37,31 @@ class LoginPage extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                       color: Colors.greenAccent.withOpacity(0.08),
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(20),
                     ),
+
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        // ✅ Close Button
+                        Align(
+                          alignment: Alignment.topRight,
+                        child:Padding(
+                         padding: const EdgeInsets.only(right: 5),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.greenAccent,
+                              size: 28,
+                            ),
+                          ),
+                        ),
+                        ),
+                        SizedBox(height: 15),
+
                         // ✅ Label and Input in Row
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -66,9 +70,9 @@ class LoginPage extends StatelessWidget {
                             children: [
                               // Label on left
                               Text(
-                                'Name',
+                                'User id',
                                 style: TextStyle(
-                                  color: Colors.greenAccent,
+                                  color: Colors.white,
                                   fontSize: 18,
                                   letterSpacing: 2,
                                 ),
@@ -79,14 +83,17 @@ class LoginPage extends StatelessWidget {
                               Expanded(
                                 child: TextField(
                                   controller: userIdController,
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                  ),
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: Colors.white.withOpacity(0.2),
-                                    hintText: 'eg. John',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    fillColor: Colors.white.withOpacity(0.8),
+                                    hintText: 'bibin@gmail.com',
+                                    hintStyle: TextStyle(color: Colors.black),
                                     enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
+                                      borderRadius: BorderRadius.circular(16),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -111,7 +118,7 @@ class LoginPage extends StatelessWidget {
                               Text(
                                 'Password',
                                 style: TextStyle(
-                                  color: Colors.greenAccent,
+                                  color: Colors.white,
                                   fontSize: 18,
                                   letterSpacing: 2,
                                 ),
@@ -122,14 +129,17 @@ class LoginPage extends StatelessWidget {
                               Expanded(
                                 child: TextField(
                                   controller: passwordIdController,
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                  ),
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: Colors.white.withOpacity(0.2),
+                                    fillColor: Colors.white.withOpacity(0.8),
                                     hintText: '1234@',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    hintStyle: TextStyle(color: Colors.black),
                                     enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
+                                      borderRadius: BorderRadius.circular(16),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -182,14 +192,9 @@ class LoginPage extends StatelessWidget {
                             // Add your action or navigation here
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(
-                              147,
-                              141,
-                              141,
-                              100,
-                            ).withOpacity(0.5),
+                            backgroundColor: Colors.blue,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(18),
                             ),
                             padding: EdgeInsets.symmetric(
                               horizontal: 40,
@@ -200,7 +205,7 @@ class LoginPage extends StatelessWidget {
                             'Sign In',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 18,
+                              fontSize: 20,
                               letterSpacing: 3,
                             ),
                           ),

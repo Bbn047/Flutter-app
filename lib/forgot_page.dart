@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ForgotPage extends StatelessWidget {
   final TextEditingController userIdController = TextEditingController();
-  final TextEditingController otpIdController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -21,52 +21,56 @@ class ForgotPage extends StatelessWidget {
           ),
         ),
 
-
         Scaffold(
           backgroundColor: Colors.transparent,
           body: SafeArea(
             child: Stack(
               children: [
-                //close button
-                Positioned(
-                  top:10,
-                  right: 16,
-                   child:GestureDetector(
-                    onTap: (){
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.close,
-                      color: Colors.greenAccent,
-                      size: 28,
+
+                //main content
+                Center(
+                  child: Container(
+                    padding: EdgeInsets.all(30),
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent.withOpacity(0.08),
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                   ),
-                   ),
+                    
 
-                   //main content
-                   Center(
-                    child: Container(
-                      padding: EdgeInsets.all(30),
-                      margin: EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                        color: Colors.greenAccent.withOpacity(0.08),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
+                    //ser input
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
 
-                      //ser input
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                //label
-                                Text(
-                                  'User ID',
-                                  style: TextStyle(
-                                  color: Colors.greenAccent,
+                        Align(
+                          alignment: Alignment.topRight,
+                        child:Padding(
+                         padding: const EdgeInsets.only(right: 5),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.greenAccent,
+                              size: 28,
+                            ),
+                          ),
+                        ),
+                        ),
+                        SizedBox(height: 15),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              //label
+                              Text(
+                                'User ID',
+                                style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 18,
                                   letterSpacing: 2,
                                 ),
@@ -77,82 +81,67 @@ class ForgotPage extends StatelessWidget {
                               Expanded(
                                 child: TextField(
                                   controller: userIdController,
-                                  style: TextStyle(color: Colors.white54),
+                                  style: TextStyle(color: Colors.black),
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: Colors.white.withOpacity(0.2),
-                                    hintText: 'email or mobile',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    fillColor: Colors.white.withOpacity(0.8),
+                                    hintText: 'Email',
+                                    hintStyle: TextStyle(color: Colors.black),
                                     enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
+                                      borderRadius: BorderRadius.circular(16),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.greenAccent,
                                         width: 2,
-                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
-                                ),
-                              ],
-                            ),
-                            ),
-                            SizedBox(height: 15),
-
-                            //otp label
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'otp',
-                                    style: TextStyle(
-                                      color: Colors.greenAccent,
-                                      fontSize: 18,
-                                      letterSpacing: 2,
-                                    ),
-                                    ),
-                                    SizedBox(width: 12),
-
-                                    //otp input section 
-                                    Expanded(
-                                      child: TextField(
-                                        controller: otpIdController,
-                                        style: TextStyle(color: Colors.white),
-                                        decoration: InputDecoration(
-                                          filled: true,
-                                          fillColor: Colors.white.withOpacity(0.2),
-                                          hintText: '6 digit',
-                                          hintStyle: TextStyle(color: Colors.white54),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Colors.greenAccent,
-                                              width: 2,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      ),
-                                ],
                               ),
-                              ),
-                              SizedBox(height: 10),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 15),
 
-                              //email link 
+                        //reset link button
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                         child: SizedBox(
+                          width: double.infinity,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.symmetric(vertical: 16),
+                              backgroundColor: Colors.yellow.withOpacity(0.8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                              )
+                            ),
+                            onPressed: (){
+                            //button logic
+                          }, 
+                          child: Text(
+                            'Send Reset Link',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                          ),
+                         ),
+                        ),
+                        SizedBox(height: 10),
 
-                        ],
-                      ),
+                        //email link
+                      ],
                     ),
-                   ),
+                  ),
+                ),
               ],
             ),
-            ),
-        )
+          ),
+        ),
       ],
     );
   }

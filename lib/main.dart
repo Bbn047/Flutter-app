@@ -58,11 +58,6 @@ class VoiceVisionHome extends StatelessWidget {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Icon(Icons.info_outline, color: Colors.greenAccent, size: 28),
-                      SizedBox(width: 20),
-                      Icon(Icons.power_settings_new, color: Colors.greenAccent, size: 28),
-                    ],
                   ),
                 ),
 
@@ -82,7 +77,7 @@ class VoiceVisionHome extends StatelessWidget {
                         color: Colors.greenAccent,
                       ),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 70),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/login');
@@ -93,19 +88,19 @@ class VoiceVisionHome extends StatelessWidget {
                           100,
                           99,
                           99,
-                        ).withOpacity(0.1),
+                        ).withOpacity(0.3),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
                         padding: EdgeInsets.symmetric(
                           horizontal: 30,
-                          vertical: 15,
+                          vertical: 20,
                         ),
                       ),
                       child: Text(
-                        'Login',
+                        'Sign In',
                         style: TextStyle(
-                          color: Colors.greenAccent,
+                          color: Colors.white,
                           fontSize: 23,
                           letterSpacing: 4,
                         ),
