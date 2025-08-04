@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(10),
                       margin: EdgeInsets.symmetric(
-                        horizontal: 10,
+                        horizontal: 30,
                         vertical: 130,
                       ),
                       decoration: BoxDecoration(
@@ -176,7 +176,9 @@ class LoginPage extends StatelessWidget {
                                 },
                                 child: Text(
                                   'forgot Password?',
-                                  style: TextStyle(color: Colors.blue),
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 12),
                                 ),
                               ),
                               TextButton(
@@ -186,7 +188,9 @@ class LoginPage extends StatelessWidget {
                                 },
                                 child: Text(
                                   'Create New!',
-                                  style: TextStyle(color: Colors.greenAccent),
+                                  style: TextStyle(
+                                    color: Colors.greenAccent,
+                                    fontSize: 12),
                                 ),
                               ),
                             ],
