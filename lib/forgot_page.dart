@@ -36,7 +36,7 @@ class ForgotPage extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(10),
                       margin: EdgeInsets.symmetric(
-                        horizontal: 10,
+                        horizontal: 30,
                         vertical: 200,
                       ),
                       decoration: BoxDecoration(
