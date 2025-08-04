@@ -28,14 +28,22 @@ class ForgotPage extends StatelessWidget {
               children: [
 
                 //main content
-                Center(
-                  child: Container(
-                    padding: EdgeInsets.all(30),
-                    margin: EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.greenAccent.withOpacity(0.08),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+               SingleChildScrollView(
+                  padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom,
+                  ),
+                  child: Center(
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 200,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.greenAccent.withOpacity(0.08),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+
                     
 
                     //ser input
@@ -138,6 +146,8 @@ class ForgotPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                ),
+
               ],
             ),
           ),
