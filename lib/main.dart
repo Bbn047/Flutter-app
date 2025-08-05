@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'login_page.dart';
 import 'create_page.dart';
 import 'forgot_page.dart';
+import 'home_page.dart';
 
 void main() => runApp(VoiceVisionApp());
 
@@ -18,6 +19,7 @@ class VoiceVisionApp extends StatelessWidget {
         '/login': (context) => LoginPage(), //login page
         '/create': (context) => CreatePage(), // create page
         '/forgot': (context) => ForgotPage(),// forgot page
+        '/home': (context) => HomePage(), //homepage
       },
     );
   }
