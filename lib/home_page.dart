@@ -1,195 +1,172 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final TextEditingController userIdController = TextEditingController();
-  final TextEditingController passwordIdController = TextEditingController();
-  final TextEditingController userNameIdController = TextEditingController();
-
-  bool readText = true;
-  bool vibration = true;
-  bool mic = false;
-  bool deviceLocation = true;
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Color darkGreen = Color(0xFF013220);
+    final Color lightGreen = Color(0xFF00D084);
+
     return Scaffold(
-      backgroundColor: Color(0xFF033D2E),
+      backgroundColor: darkGreen,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.green,
+        selectedItemColor: darkGreen,
         unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.play_circle), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: ''),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(12),
+        child: Container(
+          padding: const EdgeInsets.all(10.0),
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
           child: Column(
             children: [
-              /// Top Card with Circular Progress
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      height: 160,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF2EE690),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
+              // Top section: Device status
+              Container(
+                padding: EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: lightGreen,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    // Circular indicator
+                    SizedBox(
+                      height: 120,
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
-                          CircularProgressIndicator(
-                            value: 0.34,
-                            strokeWidth: 8,
-                            valueColor: AlwaysStoppedAnimation(Colors.white),
-                            backgroundColor: Colors.white24,
-                          ),
-                          Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Row(
-                              children: [
-                                Icon(Icons.power_settings_new, color: Colors.white),
-                                SizedBox(width: 8),
-                                Icon(Icons.refresh, color: Colors.white),
-                              ],
+                          SizedBox(
+                            width: 90,
+                            height: 90,
+                            child: CircularProgressIndicator(
+                              value: 0.34,
+                              strokeWidth: 8,
+                              backgroundColor: const Color.fromARGB(255, 0, 20, 1),
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                Colors.white,
+                              ),
                             ),
                           ),
                           Text(
                             "34%",
-                            style: TextStyle(fontSize: 22, color: Colors.white),
-                          ),
-                          Positioned(
-                            bottom: 12,
-                            child: Text(
-                              "Device Name\nConnected",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(color: Colors.white70),
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 12),
-
-              /// Map & Language + Toggles
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Map Placeholder
-                  Expanded(
-                    flex: 2,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        'assets/images/map.png',
-                        height: 180,
-                        fit: BoxFit.cover,
+                    SizedBox(width: 30),
+                    Expanded(
+                      child: Text(
+                        "Device Name\nConnected",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-
-                  // Language & Toggles
-                  Expanded(
-                    flex: 1,
-                    child: Column(
+                    Column(
                       children: [
-                        // Language
-                        Container(
-                          padding: EdgeInsets.all(6),
-                          decoration: BoxDecoration(
-                            color: Colors.white12,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Column(
-                            children: const [
-                              Text('English', style: TextStyle(color: Colors.white)),
-                              Divider(color: Colors.white24),
-                              Text('Polish', style: TextStyle(color: Colors.white)),
-                              Divider(color: Colors.white24),
-                              Text('Hindi', style: TextStyle(color: Colors.white)),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 10),
-
-                        // Switches
-                        SwitchListTile(
-                          value: readText,
-                          onChanged: (val) => setState(() => readText = val),
-                          title: Text("Read text", style: TextStyle(color: Colors.white)),
-                        ),
-                        SwitchListTile(
-                          value: vibration,
-                          onChanged: (val) => setState(() => vibration = val),
-                          title: Text("Vibration", style: TextStyle(color: Colors.white)),
-                        ),
-                        SwitchListTile(
-                          value: mic,
-                          onChanged: (val) => setState(() => mic = val),
-                          title: Text("Mic", style: TextStyle(color: Colors.white)),
-                        ),
-                        SwitchListTile(
-                          value: deviceLocation,
-                          onChanged: (val) => setState(() => deviceLocation = val),
-                          title: Text("Device Location", style: TextStyle(color: Colors.white)),
-                        ),
+                        Icon(Icons.refresh, color: Colors.white, size: 26),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              SizedBox(height: 12),
 
-              /// Device List + Mic
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white12,
+              SizedBox(height: 16),
+
+              // Map and language section
+              SizedBox(
+                height: 250,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Static map
+                    SizedBox(
+                      width: 150, // set width for left section
+                      height: 250, // set height for map
+                      child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          'assets/images/map.jpeg',
+                          fit: BoxFit.cover,
+                        ),
                       ),
+                    ),
+                    SizedBox(width: 12),
+                    // Right control panel
+                    Expanded(
+                      flex: 2,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Mobile Devices", style: TextStyle(color: Colors.white)),
-                          SizedBox(height: 6),
-                          for (var device in ["Dad", "Mom", "Grandma", "Sister"])
-                            Row(
-                              children: [
-                                Icon(Icons.circle, size: 10, color: Colors.greenAccent),
-                                SizedBox(width: 6),
-                                Text(device, style: TextStyle(color: Colors.white)),
-                              ],
+                          // Language selector
+                          DropdownButtonFormField<String>(
+                            dropdownColor: Colors.white,
+                            style: TextStyle(color: darkGreen),
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
                             ),
+                            value: "English",
+                            items: ["English", "Polish", "Hindi"]
+                                .map(
+                                  (lang) => DropdownMenuItem(
+                                    value: lang,
+                                    child: Text(lang),
+                                  ),
+                                )
+                                .toList(),
+                            onChanged: (value) {},
+                          ),
+                          SizedBox(height: 10),
+                          _buildToggle("Read text"),
+                          _buildToggle("Vibration"),
+                          _buildToggle("Music"),
+                          _buildToggle("Device Location"),
                         ],
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.white12,
-                      shape: BoxShape.circle,
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 16),
+
+              // Device list and mic
+              Row(
+                children: [
+                  // Device list
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Mobile Devices",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(height: 8),
+                        _buildDeviceTile("Dad"),
+                        _buildDeviceTile("Mom"),
+                        _buildDeviceTile("Brother"),
+                        _buildDeviceTile("Sister"),
+                      ],
                     ),
-                    child: Icon(Icons.mic, color: Colors.white),
+                  ),
+                  SizedBox(width: 12),
+                  // Mic button
+                  Expanded(
+                    flex: 1,
+                    child: CircleAvatar(
+                      radius: 32,
+                      backgroundColor: Colors.white,
+                      child: Icon(Icons.mic, color: darkGreen, size: 28),
+                    ),
                   ),
                 ],
               ),
@@ -197,6 +174,32 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildToggle(String label) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(label, style: TextStyle(color: Colors.white)),
+        Switch(
+          value: true,
+          onChanged: (val) {},
+          activeColor: Colors.greenAccent,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDeviceTile(String name) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 2),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.white24,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: Text(name, style: TextStyle(color: Colors.white)),
     );
   }
 }
