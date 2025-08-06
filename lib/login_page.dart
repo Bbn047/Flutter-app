@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
         ),
 
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: const Color.fromARGB(255, 0, 20, 1),
           body: SafeArea(
             child: Stack(
               children: [
