@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController passwordIdController = TextEditingController();
@@ -26,7 +27,7 @@ class LoginPage extends StatelessWidget {
         ),
 
         Scaffold(
-          backgroundColor: const Color.fromARGB(255, 0, 20, 1),
+          backgroundColor: Colors.transparent,
           body: SafeArea(
             child: Stack(
               children: [
@@ -231,9 +232,9 @@ class LoginPage extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-        ),
-      ],
+            ),
+        )
+      ]
     );
   }
 }
