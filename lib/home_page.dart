@@ -46,8 +46,7 @@ class HomePage extends StatelessWidget {
                               value: 0.34,
                               strokeWidth: 8,
                               backgroundColor: const Color.fromARGB(255, 0, 20, 1),
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                Colors.white,
+                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white,
                               ),
                             ),
                           ),
