@@ -52,11 +52,11 @@ class VoiceVisionHome extends StatelessWidget {
           body: SafeArea(
             child: Column(
               children: [
-                // ✅ Top icons
+                
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 10,
+                    horizontal: 10,
+                    vertical: 50,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -69,7 +69,7 @@ class VoiceVisionHome extends StatelessWidget {
                 Column(
                   children: [
                     Image.asset('assets/images/app logo.png', height: 80),
-                    SizedBox(height: 30),
+                    SizedBox(height: 25),
                     Text(
                       'Voice Vision',
                       style: GoogleFonts.leckerliOne(
@@ -79,32 +79,28 @@ class VoiceVisionHome extends StatelessWidget {
                         color: Colors.greenAccent,
                       ),
                     ),
-                    SizedBox(height: 70),
+                    SizedBox(height: 100),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/login');
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(
-                          255,
-                          100,
-                          99,
-                          99,
-                        ).withOpacity(0.3),
+                        backgroundColor: const Color.fromARGB(255, 25, 141, 219).withOpacity(1),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(16),
                         ),
                         padding: EdgeInsets.symmetric(
-                          horizontal: 30,
+                          horizontal: 20,
                           vertical: 20,
                         ),
                       ),
                       child: Text(
-                        'Sign In',
-                        style: TextStyle(
+                        'Get  Started',
+                        style:  GoogleFonts.lemon(
                           color: Colors.white,
-                          fontSize: 23,
-                          letterSpacing: 4,
+                          fontSize: 16,
+                          letterSpacing: 1,
+          
                         ),
                       ),
                     ),
